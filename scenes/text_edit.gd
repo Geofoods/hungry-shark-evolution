@@ -1,4 +1,4 @@
 extends Label
 
 func _process(delta: float) -> void:
-	text = str(round($"../../miner".position.y)+974) + "m"
+	text = str((round($"../../miner".position.y)+974)*0.01) + "m"
