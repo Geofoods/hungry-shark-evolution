@@ -5,3 +5,5 @@
 [node name="level" type="Node2D" unique_id=1405336156]
 
 [node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_u52ul")]
+
+[node name="Camera2D" type="Camera2D" parent="miner" unique_id=2038858518]
