@@ -705,6 +705,10 @@ texture_region_size = Vector2i(70, 70)
 [sub_resource type="TileSet" id="TileSet_ppgk2"]
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Ground"
+terrain_set_0/terrain_0/color = Color(0.50504744, 0.35551354, 0, 1)
+terrain_set_0/terrain_1/name = "Stone"
+terrain_set_0/terrain_1/color = Color(0.31013408, 0.31302598, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_mx8sn")
 
 [node name="level" type="Node2D" unique_id=1405336156]
