@@ -10,3 +10,4 @@ func _process(delta):
 		game_over = true
 		get_node("/root/level/User Interface/Sprite2D").visible = true
 		get_tree().paused = true
+		
