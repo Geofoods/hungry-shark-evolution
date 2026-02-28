@@ -9,7 +9,7 @@ size = Vector2(394, 4197)
 [node name="level" type="Node2D" unique_id=1405336156]
 
 [node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_2q6dc")]
-position = Vector2(-147, -3053)
+position = Vector2(-1, -2938)
 
 [node name="Camera2D" type="Camera2D" parent="miner" unique_id=2038858518]
 position_smoothing_enabled = true
@@ -80,3 +80,9 @@ shape = SubResource("RectangleShape2D_u52ul")
 
 [node name="shark" parent="." unique_id=2102375293 instance=ExtResource("2_w7c3h")]
 position = Vector2(-1175, 96)
+
+[node name="User Interface" type="Control" parent="." unique_id=1910590488]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
