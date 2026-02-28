@@ -705,6 +705,7 @@ sources/0 = SubResource("TileSetAtlasSource_mx8sn")
 position = Vector2(-1, -2938)
 
 [node name="Camera2D" type="Camera2D" parent="miner" unique_id=2038858518]
+zoom = Vector2(0.5, 0.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("2_ppgk2")

@@ -1,22 +1,19 @@
-extends CharacterBody2D
+extends CharacterBody2D  # Use KinematicBody2D in Godot 3.x
 
-# Movement variables
-@export var walk_speed: float = 200.0
-@export var jump_force: float = -350.0
-@export var gravity: float = 900.0
+# --- CONFIGURATION ---
+@export var speed: float = 600.0 # Movement speed in pixels/sec
 
 func _physics_process(delta):
-	# Apply gravity
-	if not is_on_floor():
-		velocity.y += gravity * delta
+	var input_vector = Vector2.ZERO
 
-	# Horizontal movement
-	var direction = Input.get_axis("move_left", "move_right")
-	velocity.x = direction * walk_speed
+	# --- GET INPUT ---
+	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 
-	# Jumping
-	if Input.is_action_just_pressed("jump"):
-		velocity.y = jump_force
+	# --- NORMALIZE FOR DIAGONALS ---
+	if input_vector.length() > 0:
+		input_vector = input_vector.normalized()
 
-	# Move the character
+	# --- MOVE PLAYER ---
+	velocity = input_vector * speed
 	move_and_slide()
