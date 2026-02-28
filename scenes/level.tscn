@@ -9,6 +9,7 @@ size = Vector2(394, 4197)
 [node name="level" type="Node2D" unique_id=1405336156]
 
 [node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_2q6dc")]
+position = Vector2(-147, -3053)
 
 [node name="Camera2D" type="Camera2D" parent="miner" unique_id=2038858518]
 position_smoothing_enabled = true
@@ -38,5 +39,44 @@ offset_bottom = 1053.0
 position = Vector2(187, 2088.5)
 shape = SubResource("RectangleShape2D_u52ul")
 
+[node name="ColorRect3" type="ColorRect" parent="." unique_id=445641766]
+offset_left = -1762.0001
+offset_top = -2599.0
+offset_right = -1380.0001
+offset_bottom = 1600.0
+scale = Vector2(5.2943254, 0.04486209)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColorRect3" unique_id=181332249]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect3/StaticBody2D" unique_id=545827405]
+position = Vector2(187, 2088.5)
+shape = SubResource("RectangleShape2D_u52ul")
+
+[node name="ColorRect4" type="ColorRect" parent="." unique_id=934844193]
+offset_left = -310.00012
+offset_top = -1336.0001
+offset_right = 71.99988
+offset_bottom = 2863.0
+scale = Vector2(5.2943254, 0.04486209)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColorRect4" unique_id=1024239666]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect4/StaticBody2D" unique_id=578546871]
+position = Vector2(187, 2088.5)
+shape = SubResource("RectangleShape2D_u52ul")
+
+[node name="ColorRect5" type="ColorRect" parent="." unique_id=37278687]
+offset_left = -1601.9999
+offset_top = 436.99988
+offset_right = -1219.9999
+offset_bottom = 4636.0
+scale = Vector2(5.2943254, 0.04486209)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColorRect5" unique_id=1592086592]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect5/StaticBody2D" unique_id=144078477]
+position = Vector2(187, 2088.5)
+shape = SubResource("RectangleShape2D_u52ul")
+
 [node name="shark" parent="." unique_id=2102375293 instance=ExtResource("2_w7c3h")]
-position = Vector2(-1081, 169)
+position = Vector2(-1175, 96)
