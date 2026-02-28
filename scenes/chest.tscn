@@ -54,7 +54,7 @@ script = ExtResource("1_8me8i")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1447394432]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_g5oag")
-frame_progress = 0.94046307
+frame_progress = 0.6513349
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1199537304]
 
@@ -66,3 +66,6 @@ shape = SubResource("RectangleShape2D_0xutf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=430462603]
 shape = SubResource("RectangleShape2D_kg5gm")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
