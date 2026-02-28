@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://cl81ca6hutgh8"]
 
-[ext_resource type="PackedScene" uid="uid://dtcw6bc0fitj" path="res://character_body_2d.tscn" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://dtcw6bc0fitj" path="res://scenes/character_body_2d.tscn" id="1_2q6dc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u52ul"]
 size = Vector2(3506, 536)
 
 [node name="level" type="Node2D" unique_id=1405336156]
 
-[node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_u52ul")]
+[node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_2q6dc")]
 
 [node name="Camera2D" type="Camera2D" parent="miner" unique_id=2038858518]
 
