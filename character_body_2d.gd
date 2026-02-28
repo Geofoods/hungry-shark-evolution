@@ -15,7 +15,7 @@ func _physics_process(delta):
 	velocity.x = direction * walk_speed
 
 	# Jumping
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump"):
 		velocity.y = jump_force
 
 	# Move the character

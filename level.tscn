@@ -2,8 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://dtcw6bc0fitj" path="res://character_body_2d.tscn" id="1_u52ul"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u52ul"]
+size = Vector2(3506, 536)
+
 [node name="level" type="Node2D" unique_id=1405336156]
 
 [node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_u52ul")]
 
 [node name="Camera2D" type="Camera2D" parent="miner" unique_id=2038858518]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1144876019]
+offset_left = -1753.0
+offset_top = 525.0
+offset_right = 1741.0
+offset_bottom = 1075.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColorRect" unique_id=1539153182]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StaticBody2D" unique_id=1825470782]
+position = Vector2(1743, 258)
+shape = SubResource("RectangleShape2D_u52ul")
