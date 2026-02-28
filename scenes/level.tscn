@@ -931,3 +931,12 @@ position = Vector2(2009, 1434)
 
 [node name="Chest2" parent="." unique_id=144540452 instance=ExtResource("8_b121j")]
 position = Vector2(-2111.9995, -1496.9998)
+
+[node name="Chest3" parent="." unique_id=1960647527 instance=ExtResource("8_b121j")]
+position = Vector2(2314, -525)
+
+[node name="Chest4" parent="." unique_id=543943237 instance=ExtResource("8_b121j")]
+position = Vector2(-1353.0001, 184.00002)
+
+[node name="Chest5" parent="." unique_id=1177488202 instance=ExtResource("8_b121j")]
+position = Vector2(-2130, 2566)
