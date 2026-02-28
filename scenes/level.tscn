@@ -4,24 +4,38 @@
 [ext_resource type="PackedScene" uid="uid://doa5ke4kj1oxm" path="res://scenes/shark.tscn" id="2_w7c3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u52ul"]
-size = Vector2(3506, 536)
+size = Vector2(394, 4197)
 
 [node name="level" type="Node2D" unique_id=1405336156]
 
 [node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_2q6dc")]
 
 [node name="Camera2D" type="Camera2D" parent="miner" unique_id=2038858518]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1144876019]
 offset_left = -1753.0
-offset_top = 525.0
-offset_right = 1741.0
+offset_top = -3124.0
+offset_right = -1371.0
 offset_bottom = 1075.0
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ColorRect" unique_id=1539153182]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StaticBody2D" unique_id=1825470782]
-position = Vector2(1743, 258)
+position = Vector2(187, 2088.5)
+shape = SubResource("RectangleShape2D_u52ul")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=144045242]
+offset_left = 1507.0
+offset_top = -3146.0
+offset_right = 1889.0
+offset_bottom = 1053.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ColorRect2" unique_id=1585298937]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect2/StaticBody2D" unique_id=110951645]
+position = Vector2(187, 2088.5)
 shape = SubResource("RectangleShape2D_u52ul")
 
 [node name="shark" parent="." unique_id=2102375293 instance=ExtResource("2_w7c3h")]
