@@ -783,16 +783,21 @@ position = Vector2(-1175, 96)
 metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="User Interface" unique_id=1959476848]
-offset_left = 15.0
-offset_top = 16.0
-offset_right = 247.0
-offset_bottom = 43.0
+offset_left = 1409.0
+offset_top = 967.0
+offset_right = 1878.0
+offset_bottom = 1040.0
 value = 100.0
 script = ExtResource("3_w8frs")
 
 [node name="TextEdit" type="TextEdit" parent="User Interface" unique_id=1960287643]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 173.0
+offset_top = 983.0
+offset_right = 181.0
+offset_bottom = 991.0
+rotation = 0.02104335
+theme_override_font_sizes/font_size = 100
+text = "sdfhfh"
 placeholder_text = "0m"
 script = ExtResource("5_2r41h")
 
