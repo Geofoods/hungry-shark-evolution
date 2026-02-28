@@ -928,3 +928,6 @@ shape = SubResource("RectangleShape2D_klq6b")
 
 [node name="Chest" parent="." unique_id=282726690 instance=ExtResource("8_b121j")]
 position = Vector2(2009, 1434)
+
+[node name="Chest2" parent="." unique_id=144540452 instance=ExtResource("8_b121j")]
+position = Vector2(-2111.9995, -1496.9998)

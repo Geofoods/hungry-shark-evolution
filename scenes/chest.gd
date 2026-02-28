@@ -2,6 +2,7 @@ extends Node2D
 
 var playertouching = false
 var opened = false
+var pickableitem = preload("res://pickableitems.tscn")
 
 func _ready() -> void:
 	$AnimatedSprite2D.frame = 0
@@ -17,3 +18,4 @@ func _process(delta):
 	if playertouching and Input.is_action_just_pressed("interact") and !opened:
 		$AnimatedSprite2D.play("default")
 		opened = true
+		add_child(pickableitem)
