@@ -1,4 +1,4 @@
-extends CharacterBody2D  # Use KinematicBody2D in Godot 3.x
+extends CharacterBody2D # Use KinematicBody2D in Godot 3.x
 
 # --- CONFIGURATION ---
 @export var speed: float = 600.0 # Movement speed in pixels/sec

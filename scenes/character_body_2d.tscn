@@ -1,17 +1,55 @@
 [gd_scene format=3 uid="uid://dtcw6bc0fitj"]
 
-[ext_resource type="Texture2D" uid="uid://ct2f5vt3w7urn" path="res://sprites/icon.svg" id="1_f50pn"]
 [ext_resource type="Script" uid="uid://byydsj5eyoc42" path="res://scripts/character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Texture2D" uid="uid://w5m2byj44btm" path="res://people/scuba-stu-pack-lrg.jpg" id="2_g2brh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij6vw"]
-size = Vector2(122, 124)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dn4c7"]
+atlas = ExtResource("2_g2brh")
+region = Rect2(31, 0, 31, 73)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=297162121]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vejd"]
+atlas = ExtResource("2_g2brh")
+region = Rect2(62, 0, 31, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws0vm"]
+atlas = ExtResource("2_g2brh")
+region = Rect2(93, 0, 31, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhr3r"]
+atlas = ExtResource("2_g2brh")
+region = Rect2(186, 0, 31, 73)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t53lx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dn4c7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4vejd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws0vm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhr3r")
+}],
+"loop": true,
+"name": &"South",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=297162121]
 script = ExtResource("1_ij6vw")
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1244728432]
-position = Vector2(0, 1)
-texture = ExtResource("1_f50pn")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1219896105]
-shape = SubResource("RectangleShape2D_ij6vw")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1297599976]
+position = Vector2(3.0000007, 2)
+scale = Vector2(2.1209679, 2.1209674)
+sprite_frames = SubResource("SpriteFrames_t53lx")
+animation = &"South"
+frame_progress = 0.2488676
