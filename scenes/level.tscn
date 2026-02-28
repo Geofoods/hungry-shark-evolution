@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cl81ca6hutgh8"]
 
 [ext_resource type="PackedScene" uid="uid://dtcw6bc0fitj" path="res://scenes/character_body_2d.tscn" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://doa5ke4kj1oxm" path="res://scenes/shark.tscn" id="2_w7c3h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u52ul"]
 size = Vector2(3506, 536)
@@ -22,3 +23,6 @@ offset_bottom = 1075.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColorRect/StaticBody2D" unique_id=1825470782]
 position = Vector2(1743, 258)
 shape = SubResource("RectangleShape2D_u52ul")
+
+[node name="shark" parent="." unique_id=2102375293 instance=ExtResource("2_w7c3h")]
+position = Vector2(-1081, 169)
