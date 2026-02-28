@@ -82,16 +82,13 @@ shape = SubResource("RectangleShape2D_u52ul")
 [node name="shark" parent="." unique_id=2102375293 instance=ExtResource("2_w7c3h")]
 position = Vector2(-1175, 96)
 
-[node name="User Interface" type="Control" parent="." unique_id=1910590488]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="User Interface" type="CanvasLayer" parent="." unique_id=1002592507]
+metadata/_edit_use_anchors_ = true
 
 [node name="ProgressBar" type="ProgressBar" parent="User Interface" unique_id=1959476848]
-layout_mode = 0
 offset_left = 15.0
 offset_top = 16.0
 offset_right = 247.0
 offset_bottom = 43.0
+value = 100.0
 script = ExtResource("3_w8frs")
