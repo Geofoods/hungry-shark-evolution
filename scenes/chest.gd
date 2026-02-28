@@ -1,0 +1,16 @@
+extends Node2D
+
+var playertouching = false
+var opened = false
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	playertouching = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	playertouching = false
+	
+func _process(delta):
+	if playertouching and Input.is_action_just_pressed("interact") and !opened:
+		$AnimatedSprite2D.play("default")
+		opened = true
