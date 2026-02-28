@@ -18,4 +18,5 @@ func _process(delta):
 	if playertouching and Input.is_action_just_pressed("interact") and !opened:
 		$AnimatedSprite2D.play("default")
 		opened = true
-		add_child(pickableitem)
+		var pickableinstance = pickableitem.instantiate()
+		add_child(pickableinstance)
