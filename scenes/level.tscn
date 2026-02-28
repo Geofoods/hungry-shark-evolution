@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://dtcw6bc0fitj" path="res://scenes/character_body_2d.tscn" id="1_2q6dc"]
 [ext_resource type="Script" uid="uid://domvdq6ryi2ea" path="res://scenes/camera_2d.gd" id="2_ppgk2"]
-[ext_resource type="PackedScene" uid="uid://doa5ke4kj1oxm" path="res://scenes/shark.tscn" id="2_w7c3h"]
 [ext_resource type="Script" uid="uid://da1hytj0xj3hl" path="res://scenes/progress_bar.gd" id="3_w8frs"]
 [ext_resource type="Texture2D" uid="uid://c7ml23lvb2c6t" path="res://sprites/sheet.png" id="4_mx8sn"]
 [ext_resource type="Script" uid="uid://c7b6vkjhjtawj" path="res://scenes/text_edit.gd" id="5_2r41h"]
 [ext_resource type="Texture2D" uid="uid://cvwvrpy4qlip1" path="res://sprites/youlose.jpg" id="6_b121j"]
 [ext_resource type="Script" uid="uid://badcxlsojw6ep" path="res://scenes/nextlevel.gd" id="7_klq6b"]
+[ext_resource type="PackedScene" uid="uid://0veg74najmgo" path="res://scenes/chest.tscn" id="8_b121j"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_2r41h"]
 tile_data = PackedInt32Array(0, 131072, 5, 1, 262144, 1, 2, 262144, 1, 3, 262144, 1, 4, 262144, 1, 5, 262144, 1, 6, 262144, 1, 7, 262144, 1, 8, 262144, 1, 9, 131072, 4)
@@ -885,10 +885,6 @@ script = ExtResource("2_ppgk2")
 offset_factor = 0.1
 player = NodePath("..")
 
-[node name="shark" parent="." unique_id=2102375293 instance=ExtResource("2_w7c3h")]
-visible = false
-position = Vector2(-1175, 96)
-
 [node name="User Interface" type="CanvasLayer" parent="." unique_id=1002592507]
 metadata/_edit_use_anchors_ = true
 
@@ -929,3 +925,6 @@ script = ExtResource("7_klq6b")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nextlevel" unique_id=1847476716]
 position = Vector2(-217, 2911)
 shape = SubResource("RectangleShape2D_klq6b")
+
+[node name="Chest" parent="." unique_id=282726690 instance=ExtResource("8_b121j")]
+position = Vector2(2009, 1434)

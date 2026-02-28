@@ -3,6 +3,9 @@ extends Node2D
 var playertouching = false
 var opened = false
 
+func _ready() -> void:
+	$AnimatedSprite2D.frame = 0
+	
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	playertouching = true
 
