@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://doa5ke4kj1oxm" path="res://scenes/shark.tscn" id="2_w7c3h"]
 [ext_resource type="Script" uid="uid://da1hytj0xj3hl" path="res://scenes/progress_bar.gd" id="3_w8frs"]
 [ext_resource type="Texture2D" uid="uid://c7ml23lvb2c6t" path="res://sprites/sheet.png" id="4_mx8sn"]
+[ext_resource type="Script" uid="uid://c7b6vkjhjtawj" path="res://scenes/text_edit.gd" id="5_2r41h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u52ul"]
 size = Vector2(394, 4197)
@@ -788,6 +789,12 @@ offset_right = 247.0
 offset_bottom = 43.0
 value = 100.0
 script = ExtResource("3_w8frs")
+
+[node name="TextEdit" type="TextEdit" parent="User Interface" unique_id=1960287643]
+offset_right = 8.0
+offset_bottom = 8.0
+placeholder_text = "0m"
+script = ExtResource("5_2r41h")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1717291227]
 tile_set = SubResource("TileSet_ppgk2")
