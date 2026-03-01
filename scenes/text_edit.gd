@@ -23,4 +23,4 @@ func _ready() -> void:
 	add_theme_constant_override("shadow_offset_y", 2)
 
 func _process(_delta: float) -> void:
-	text = str((round($"../../miner".position.y) + 974) * 0.01) + "m"
+	text = str((round($"../../miner".position.y) + 1990) * -0.01) + "m"
