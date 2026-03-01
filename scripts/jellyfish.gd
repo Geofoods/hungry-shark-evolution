@@ -15,11 +15,6 @@ func _ready() -> void:
 	_time = randf() * TAU
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
-	var overlapping = get_overlapping_bodies()
-	for body in overlapping:
-		print(body.name)
-		if body.name == "TileMapLayer":
-			queue_free()
 
 
 func _process(delta: float) -> void:

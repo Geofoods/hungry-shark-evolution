@@ -18,12 +18,12 @@ func _ready() -> void:
 
 	var weapon_vbox = _make_slot("WEAPON", Color(0.25, 0.5, 1.0, 1.0))
 	container.add_child(weapon_vbox)
-	weapon_icon = weapon_vbox.get_child(1).get_child(0)
+	weapon_icon = weapon_vbox.get_meta("icon")
 
 	for i in range(2):
 		var pu_vbox = _make_slot("ITEM " + str(i + 1), Color(0.2, 0.85, 0.35, 1.0))
 		container.add_child(pu_vbox)
-		powerup_icons.append(pu_vbox.get_child(1).get_child(0))
+		powerup_icons.append(pu_vbox.get_meta("icon"))
 
 
 func _make_slot(label_text: String, border_color: Color) -> VBoxContainer:
@@ -61,6 +61,7 @@ func _make_slot(label_text: String, border_color: Color) -> VBoxContainer:
 	panel.add_child(icon)
 
 	vbox.add_child(panel)
+	vbox.set_meta("icon", icon)
 	return vbox
 
 

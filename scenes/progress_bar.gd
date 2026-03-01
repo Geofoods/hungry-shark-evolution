@@ -59,5 +59,5 @@ func _process(delta: float) -> void:
 
 	if UserInterface.oxygen <= 0 and not game_over:
 		game_over = true
-		get_node("/root/level/User Interface/Sprite2D").visible = true
+		get_tree().current_scene.get_node("User Interface/Sprite2D").visible = true
 		get_tree().paused = true
