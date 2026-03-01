@@ -31,4 +31,3 @@ There exists a character animation pack on this style. (TiM - FREE Character Ani
 In the near future i will update a tileset with the same art style
 
 i will keep creating assets itch.io - @danimaccari -> https://dani-maccari.itch.io/
-
