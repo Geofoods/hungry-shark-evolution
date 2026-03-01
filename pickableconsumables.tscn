@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://yp2oh82bmjwi"]
 
 [ext_resource type="Script" uid="uid://opwrikdi5ed4" path="res://pickableitems.gd" id="1_mna54"]
-[ext_resource type="Texture2D" uid="uid://pen4687bluee" path="res://Sword Pack/Black Sword.png" id="2_63hko"]
 
 [sub_resource type="Animation" id="Animation_wh125"]
 length = 0.001
@@ -46,7 +45,6 @@ script = ExtResource("1_mna54")
 [node name="item sprite" type="Sprite2D" parent="." unique_id=1680223980]
 texture_filter = 1
 scale = Vector2(1, 1.074)
-texture = ExtResource("2_63hko")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="item sprite" unique_id=355748249]
 libraries/ = SubResource("AnimationLibrary_rhxft")
