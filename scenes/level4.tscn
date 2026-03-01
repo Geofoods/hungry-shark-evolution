@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://domvdq6ryi2ea" path="res://scenes/camera_2d.gd" id="2_q6sfj"]
 [ext_resource type="Script" uid="uid://da1hytj0xj3hl" path="res://scenes/progress_bar.gd" id="3_0wxwt"]
 [ext_resource type="Script" uid="uid://c7b6vkjhjtawj" path="res://scenes/text_edit.gd" id="4_5tkub"]
-[ext_resource type="Texture2D" uid="uid://cvwvrpy4qlip1" path="res://sprites/youlose.jpg" id="5_jvphm"]
 [ext_resource type="Texture2D" uid="uid://c7ml23lvb2c6t" path="res://sprites/sheet.png" id="6_g1xgd"]
 [ext_resource type="Script" uid="uid://badcxlsojw6ep" path="res://scenes/nextlevel.gd" id="7_3n7tn"]
 [ext_resource type="PackedScene" uid="uid://0veg74najmgo" path="res://scenes/chest.tscn" id="8_8f67t"]
@@ -909,13 +908,6 @@ theme_override_font_sizes/font_size = 22
 text = "fasdf"
 script = ExtResource("4_5tkub")
 metadata/_edit_use_anchors_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="User Interface" unique_id=918596848]
-visible = false
-position = Vector2(-34.000008, 241.00003)
-scale = Vector2(3.578, 3.578)
-texture = ExtResource("5_jvphm")
-offset = Vector2(326.47968, 86.27979)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1717291227]
 scale = Vector2(2, 2)

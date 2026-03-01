@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bwgbbhhsgxyeb"]
+
+[ext_resource type="Script" uid="uid://cu8hutp525nml" path="res://losescreen.gd" id="1_g3uia"]
+
+[node name="losescreen" type="CanvasLayer" unique_id=821707658]
+layer = 5
+visible = false
+script = ExtResource("1_g3uia")
+
+[node name="Label" type="Label" parent="." unique_id=658228623]
+offset_left = 483.0
+offset_top = 175.0
+offset_right = 1400.0
+offset_bottom = 448.0
+theme_override_font_sizes/font_size = 200
+text = "You Lose!"
+
+[node name="Button" type="Button" parent="." unique_id=1841697139]
+offset_left = 685.0
+offset_top = 619.0
+offset_right = 1191.0
+offset_bottom = 764.0
+theme_override_font_sizes/font_size = 100
+text = "Play Again"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

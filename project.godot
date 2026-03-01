@@ -21,12 +21,14 @@ UserInterface="*uid://cbmflf5qs5ylt"
 InventoryUI="*res://inventory_ui.gd"
 LayerPopup="*res://layer_popup.gd"
 EnemySpawner="*res://enemy_spawner.gd"
-PromptUI="*res://prompt_ui.gd"
+Losescreen="*uid://bwgbbhhsgxyeb"
+<<<<<<<Updatedupstream<<<<<<<Updatedupstream<<<<<<<UpdatedupstreamPromptUI="*res://prompt_ui.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=4
 
 [input]
 
