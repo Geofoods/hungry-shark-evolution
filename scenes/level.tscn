@@ -942,3 +942,5 @@ position = Vector2(-1353.0001, 184.00002)
 
 [node name="Chest5" parent="." unique_id=1177488202 instance=ExtResource("8_b121j")]
 position = Vector2(-2102.0002, 2566.0002)
+
+[connection signal="body_entered" from="nextlevel" to="nextlevel" method="_on_body_entered"]
