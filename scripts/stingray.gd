@@ -22,10 +22,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "miner":
 		_player_contact = true
 		_player = body
-		var bolt = Lightning.instantiate()
-		get_tree().root.add_child(bolt)
-		bolt.global_position = body.global_position
-
+		
 func _physics_process(delta: float) -> void:
 	_time += delta
 	# Gliding horizontal patrol with gentle sine-wave vertical drift
@@ -39,13 +36,11 @@ func _physics_process(delta: float) -> void:
 		$Sprite2D.flip_h = _direction < 0.0
 
 func _process(delta: float) -> void:
-	$ProgressBar.value = enemyhealth
-	if _player_contact:
-		UserInterface.oxygen -= DAMAGE_PER_SECOND * delta
+	if _player_contact and !$GPUParticles2D2.emitting:
+		$GPUParticles2D2.emitting = true
+		UserInterface.oxygen -= DAMAGE_PER_SECOND
 		var player_pos=_player.global_position
-
-const Lightning = preload("res://bolt.tscn")
-
+		
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "miner":
 		_player_contact = false

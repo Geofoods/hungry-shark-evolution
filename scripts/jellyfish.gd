@@ -18,14 +18,14 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 
-func _process(delta: float) -> void:
+func _process(_delta) -> void:
 	$ProgressBar.value = enemyhealth
-	_time += delta
 	# Bob up and down around saspawn point
 	global_position.y = _origin_y + (sin(_time * BOB_SPEED)-0.5) * BOB_AMPLITUDE
 
-	if _player_contact:
-		UserInterface.oxygen -= DAMAGE_PER_SECOND * delta
+	if _player_contact and !$GPUParticles2D2.emitting:
+		$GPUParticles2D2.emitting = true
+		UserInterface.oxygen -= DAMAGE_PER_SECOND
 
 
 func _on_body_entered(body: Node2D) -> void:
