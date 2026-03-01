@@ -11,4 +11,3 @@ func _on_button_pressed() -> void:
 	UserInterface.oxygen = 100
 	UserInterface.level = 0
 	visible = false
-	get_tree().paused = false

@@ -871,6 +871,9 @@ pattern_2 = SubResource("TileMapPattern_b121j")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klq6b"]
 size = Vector2(1552, 292)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ep0u"]
+size = Vector2(981, 86)
+
 [node name="level" type="Node2D" unique_id=1405336156]
 
 [node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_hrcei")]
@@ -932,3 +935,9 @@ position = Vector2(986.0001, -1500.0001)
 
 [node name="Chest4" parent="." unique_id=1347282307 instance=ExtResource("8_cleqw")]
 position = Vector2(-3338, 466.99994)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=541168125]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=257943762]
+position = Vector2(-71.5, -2144)
+shape = SubResource("RectangleShape2D_6ep0u")
