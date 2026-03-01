@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 func _process(delta: float) -> void:
-	if UserInterface.oxygen < 0:
+	if UserInterface.oxygen <= 0:
 		visible = true
 		get_tree().paused = true
 

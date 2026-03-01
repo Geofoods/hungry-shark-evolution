@@ -23,4 +23,7 @@ func _ready() -> void:
 	add_theme_constant_override("shadow_offset_y", 2)
 
 func _process(_delta: float) -> void:
-	text = str(((round($"../../miner".position.y) + 1990) * -0.01) + -44 * UserInterface.level) + "m"
+	var miner = get_tree().current_scene.get_node_or_null("miner")
+	if miner == null:
+		return
+	text = str(((round(miner.position.y) + 1990) * -0.01) + -44 * UserInterface.level) + "m"
