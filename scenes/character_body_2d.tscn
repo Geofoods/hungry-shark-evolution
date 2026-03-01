@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dtcw6bc0fitj"]
 
 [ext_resource type="Script" uid="uid://byydsj5eyoc42" path="res://scripts/character_body_2d.gd" id="1_ij6vw"]
-[ext_resource type="Texture2D" uid="uid://w5m2byj44btm" path="res://people/scuba-stu-pack-lrg.jpg" id="2_g2brh"]
+[ext_resource type="Texture2D" uid="uid://cgwrtuuom703m" path="res://people/scuba-stu-pack-lrg-removebg-preview.png" id="2_g2brh"]
+[ext_resource type="Script" uid="uid://b0dmwaod6ubp4" path="res://scenes/playeranimation.gd" id="3_dn4c7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dn4c7"]
 atlas = ExtResource("2_g2brh")
@@ -45,7 +46,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
-size = Vector2(30.174902, 35.36122)
+size = Vector2(30.174902, 67.42206)
 
 [node name="Player" type="CharacterBody2D" unique_id=297162121]
 script = ExtResource("1_ij6vw")
@@ -55,9 +56,10 @@ position = Vector2(3.0000007, 2)
 scale = Vector2(2.1209679, 2.1209674)
 sprite_frames = SubResource("SpriteFrames_t53lx")
 animation = &"South"
-frame_progress = 0.11411189
+frame_progress = 0.6756728
+script = ExtResource("3_dn4c7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=772646105]
-position = Vector2(1.999999, 3.4999998)
+position = Vector2(1.999999, 1.500001)
 scale = Vector2(2.1209679, 2.1209674)
 shape = SubResource("RectangleShape2D_g2brh")
