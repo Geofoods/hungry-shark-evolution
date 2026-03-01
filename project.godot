@@ -18,6 +18,7 @@ config/icon="res://sprites/icon.svg"
 [autoload]
 
 UserInterface="*uid://cbmflf5qs5ylt"
+InventoryUI="*res://inventory_ui.gd"
 
 [display]
 
