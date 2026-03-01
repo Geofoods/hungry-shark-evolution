@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var weapon_anim: AnimationPlayer = $WeaponPivot/WeaponAnimPlayer
 
 var _equipped_weapon_name: String = ""
+var _swing_offset: float = 0.0
+var _is_swinging: bool = false
 
 func _physics_process(_delta):
 	var input_vector = Vector2.ZERO
@@ -16,6 +18,7 @@ func _physics_process(_delta):
 
 	if input_vector.length() > 0:
 		input_vector = input_vector.normalized()
+		anim.rotation = input_vector.angle() + PI / 2
 		$CollisionShape2D.rotation = input_vector.angle() - PI / 2
 		if anim.animation != &"swim":
 			anim.play("swim")
@@ -26,18 +29,35 @@ func _physics_process(_delta):
 	velocity = input_vector * speed
 	move_and_slide()
 
-	# Always face cursor
+	# Weapon tracks cursor — flip pivot on the left so sword stays upright
 	var to_cursor = get_global_mouse_position() - global_position
-	anim.rotation = to_cursor.angle() + PI / 2
-	weapon_pivot.rotation = to_cursor.angle()
+	if to_cursor.x >= 0.0:
+		weapon_pivot.scale.x = 1.0
+		weapon_pivot.rotation = to_cursor.angle() + _swing_offset
+	else:
+		weapon_pivot.scale.x = -1.0
+		weapon_pivot.rotation = -atan2(to_cursor.y, -to_cursor.x) + _swing_offset
 
-	# Sync weapon sprite to current inventory slot
 	_update_weapon()
 
-	# Swing on left click
 	if Input.is_action_just_pressed("attack"):
-		if UserInterface.weapon != null and not weapon_anim.is_playing():
-			weapon_anim.play("weapon/swing")
+		if UserInterface.weapon != null and not _is_swinging:
+			_do_swing()
+
+
+func _do_swing() -> void:
+	_is_swinging = true
+	var tween = create_tween()
+	# Wind up behind
+	tween.tween_property(self, "_swing_offset", -0.9, 0.07) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	# Slash forward fast
+	tween.tween_property(self, "_swing_offset", 1.1, 0.13) \
+		.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+	# Snap back to rest
+	tween.tween_property(self, "_swing_offset", 0.0, 0.1) \
+		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_callback(func(): _is_swinging = false)
 
 
 func _update_weapon() -> void:
