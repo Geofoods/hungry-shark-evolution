@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+func _ready() -> void:
+	$highscore.text = "Highscore: " + str(((UserInterface.downmeters + 1990) * -0.01) + -44 * UserInterface.level) + "m"
 func _process(delta: float) -> void:
 	if UserInterface.oxygen <= 0:
 		visible = true

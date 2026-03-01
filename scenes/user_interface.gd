@@ -2,6 +2,7 @@ extends Node
 
 var oxygen = 100
 var level = 0
+var downmeters = 0
 # Inventory: 1 weapon slot, 2 powerup slots
 # Each item is a Dictionary: { name, type, texture_path }
 var weapon = null
