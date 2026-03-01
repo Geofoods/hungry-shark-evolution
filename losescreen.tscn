@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cu8hutp525nml" path="res://losescreen.gd" id="1_g3uia"]
 
 [node name="losescreen" type="CanvasLayer" unique_id=821707658]
+process_mode = 3
 layer = 5
 visible = false
 script = ExtResource("1_g3uia")
