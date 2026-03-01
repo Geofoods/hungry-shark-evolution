@@ -17,7 +17,11 @@ func _ready():
 func _process(delta):
 	if not player_node:
 		return
-	
+	UserInterface.shakeamount *= 0.9
+	offset.x += randf_range(-UserInterface.shakeamount, UserInterface.shakeamount)
+	offset.y += randf_range(-UserInterface.shakeamount, UserInterface.shakeamount)
+	offset.x *= 0.9
+	offset.y *= 0.9
 	# Get positions
 	var player_pos = player_node.global_position
 	var mouse_pos = get_global_mouse_position()
