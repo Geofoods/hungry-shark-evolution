@@ -2,7 +2,7 @@ extends Node2D
 
 var playertouching = false
 var opened = false
-var pickableitem = preload("res://pickableitems.tscn")
+var pickableitem = preload("res://pickableconsumables.tscn")
 
 
 func _ready() -> void:
