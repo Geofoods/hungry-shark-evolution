@@ -12,3 +12,6 @@ func _physics_process(delta):
 	# --- MOVE PLAYER ---
 	velocity = input_vector * speed
 	move_and_slide()
+	if input_vector.length() > 0:
+		input_vector = input_vector.normalized()
+		$CollisionShape2D.rotation = input_vector.angle() - PI/2

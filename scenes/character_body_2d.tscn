@@ -46,7 +46,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
-size = Vector2(30.174902, 67.42206)
+size = Vector2(25.460073, 66.243355)
 
 [node name="Player" type="CharacterBody2D" unique_id=297162121]
 script = ExtResource("1_ij6vw")
@@ -56,10 +56,10 @@ position = Vector2(3.0000007, 2)
 scale = Vector2(2.1209679, 2.1209674)
 sprite_frames = SubResource("SpriteFrames_t53lx")
 animation = &"South"
-frame_progress = 0.6756728
+frame_progress = 0.49148354
 script = ExtResource("3_dn4c7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=772646105]
-position = Vector2(1.999999, 1.500001)
+position = Vector2(1.0000005, 2.7499986)
 scale = Vector2(2.1209679, 2.1209674)
 shape = SubResource("RectangleShape2D_g2brh")
