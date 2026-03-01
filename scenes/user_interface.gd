@@ -3,6 +3,13 @@ extends Node
 var oxygen = 100
 var level = 0
 var downmeters = 0
+<<<<<<< Updated upstream
+=======
+var knockback = 0
+var shakeamount = 0
+var damage = 30
+var attackspeed = 0.3
+>>>>>>> Stashed changes
 # Inventory: 1 weapon slot, 2 powerup slots
 # Each item is a Dictionary: { name, type, texture_path }
 var weapon = null

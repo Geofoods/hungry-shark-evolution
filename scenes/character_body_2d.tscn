@@ -104,6 +104,9 @@ _data = {
 &"pickup": SubResource("Animation_pickup")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vejd"]
+radius = 147.085
+
 [node name="Player" type="CharacterBody2D" unique_id=297162121]
 script = ExtResource("1_ij6vw")
 
@@ -126,8 +129,27 @@ position = Vector2(120, 0)
 rotation_degrees = -90.0
 scale = Vector2(22.0, 22.0)
 texture_filter = 1
+<<<<<<< Updated upstream
 centered = true
 visible = false
+=======
+position = Vector2(75, 0)
+rotation = 1.5707964
+scale = Vector2(1e-05, 1e-05)
+>>>>>>> Stashed changes
 
 [node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot"]
 libraries/weapon = SubResource("AnimationLibrary_weapon")
+
+[node name="attackarea" type="Area2D" parent="." unique_id=1793279294]
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackarea" unique_id=503372923]
+shape = SubResource("CircleShape2D_4vejd")
+
+[node name="attacktimer" type="Timer" parent="." unique_id=1361838158]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="attacktimer" to="." method="_on_attacktimer_timeout"]

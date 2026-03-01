@@ -9,7 +9,7 @@ var _direction: float = 1.0
 var _time: float = 0.0
 var _player_contact: bool = false
 var _player=null
-@export var enemyhealth = 100
+var enemyhealth = 100
 
 func _ready() -> void:
 	# Randomise start time and direction so each stingray feels independent
@@ -40,8 +40,17 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	$ProgressBar.value = enemyhealth
+<<<<<<< Updated upstream
 	if _player_contact:
 		UserInterface.oxygen -= DAMAGE_PER_SECOND * delta
+=======
+	if _player_contact and $GPUParticles2D2.finished and $Timer.is_stopped():
+		$Timer.start()
+		$GPUParticles2D2.emitting = true
+		UserInterface.shakeamount += 50
+		UserInterface.knockback = -10
+		UserInterface.oxygen -= DAMAGE_PER_SECOND
+>>>>>>> Stashed changes
 		var player_pos=_player.global_position
 
 const Lightning = preload("res://bolt.tscn")
@@ -49,3 +58,13 @@ const Lightning = preload("res://bolt.tscn")
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "miner":
 		_player_contact = false
+		
+
+func _on_hurt_area_area_entered(area: Area2D) -> void:
+	if area.name == "attackarea":
+		enemyhealth -= UserInterface.damage
+		if enemyhealth < 0:
+			queue_free()
+			UserInterface.oxygen += 50
+			if UserInterface.oxygen > 100:
+				UserInterface.oxygen = 100

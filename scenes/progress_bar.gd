@@ -51,7 +51,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	UserInterface.oxygen -= 1.0 * delta
+	UserInterface.oxygen -= (UserInterface.level+1) * delta
 	UserInterface.oxygen = clampf(UserInterface.oxygen, 0.0, 100.0)
 	value = UserInterface.oxygen
 	_value_label.text = str(int(UserInterface.oxygen))
