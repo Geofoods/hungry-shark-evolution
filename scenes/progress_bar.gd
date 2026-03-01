@@ -56,8 +56,3 @@ func _process(delta: float) -> void:
 	UserInterface.oxygen = clampf(UserInterface.oxygen, 0.0, 100.0)
 	value = UserInterface.oxygen
 	_value_label.text = str(int(UserInterface.oxygen))
-
-	if UserInterface.oxygen <= 0 and not game_over:
-		game_over = true
-		get_node("/root/level/User Interface/Sprite2D").visible = true
-		get_tree().paused = true
