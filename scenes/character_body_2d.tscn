@@ -124,7 +124,7 @@ shape = SubResource("RectangleShape2D_g2brh")
 [node name="WeaponSprite" type="Sprite2D" parent="WeaponPivot" unique_id=1862105497]
 visible = false
 texture_filter = 1
-position = Vector2(160, 0)
+position = Vector2(75, 0)
 rotation = 1.5707964
 scale = Vector2(32, 32)
 
