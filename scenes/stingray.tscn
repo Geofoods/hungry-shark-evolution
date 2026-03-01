@@ -47,6 +47,8 @@ height = 157.99998
 radius = 74.00005
 height = 389.99994
 
+[sub_resource type="Theme" id="Theme_sfpyh"]
+
 [node name="Stingray" type="CharacterBody2D" unique_id=613965640]
 script = ExtResource("1_ray")
 
@@ -73,3 +75,4 @@ offset_left = -118.0
 offset_top = -122.0
 offset_right = 116.0
 offset_bottom = -95.0
+theme = SubResource("Theme_sfpyh")

@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 @export var speed: float = 600.0
+@export var rotation_speed: float = 8.0 # Higher = faster rotation
+@export var rotation_offset: float = PI / 2 # Adjust based on sprite direction
 
 @onready var anim: AnimatedSprite2D = $playeranimation
 @onready var weapon_pivot: Node2D = $WeaponPivot
@@ -11,22 +13,26 @@ var _equipped_weapon_name: String = ""
 var _swing_offset: float = 0.0
 var _is_swinging: bool = false
 
-func _physics_process(_delta):
+func _physics_process(delta):
+	# 1. Get movement input
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-
-	if input_vector.length() > 0:
-		input_vector = input_vector.normalized()
-		anim.rotation = input_vector.angle() + PI / 2
-		$CollisionShape2D.rotation = input_vector.angle() - PI / 2
-		if anim.animation != &"swim":
-			anim.play("swim")
+	
+	# 2. Only rotate if there is movement
+	if input_vector != Vector2.ZERO:
+		# Calculate the target angle (in radians) from input
+		var target_angle = input_vector.angle() + rotation_offset
+		
+		# Smoothly rotate toward target angle
+		rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
+		
+		# Move in the direction of input
+		velocity = input_vector.normalized() * speed
 	else:
-		if anim.animation != &"idle":
-			anim.play("idle")
-
-	velocity = input_vector * speed
+		velocity = Vector2.ZERO
+	
+	# 3. Apply movement with collision
 	move_and_slide()
 
 	# Weapon tracks cursor — flip pivot on the left so sword stays upright

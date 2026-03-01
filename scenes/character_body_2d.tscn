@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cgwrtuuom703m" path="res://people/scuba-stu-pack-lrg-removebg-preview.png" id="2_g2brh"]
 [ext_resource type="Script" uid="uid://b0dmwaod6ubp4" path="res://scenes/playeranimation.gd" id="3_dn4c7"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle0"]
+atlas = ExtResource("2_g2brh")
+region = Rect2(0, 0, 31, 73)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_swim0"]
 atlas = ExtResource("2_g2brh")
 region = Rect2(0, 0, 31, 73)
@@ -36,12 +40,16 @@ region = Rect2(186, 0, 31, 73)
 atlas = ExtResource("2_g2brh")
 region = Rect2(217, 0, 31, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_idle0"]
-atlas = ExtResource("2_g2brh")
-region = Rect2(0, 0, 31, 73)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_t53lx"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idle0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_swim0")
@@ -70,14 +78,6 @@ animations = [{
 "loop": true,
 "name": &"swim",
 "speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_idle0")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
@@ -119,15 +119,14 @@ position = Vector2(1.0000005, 2.7499986)
 scale = Vector2(2.1209679, 2.1209674)
 shape = SubResource("RectangleShape2D_g2brh")
 
-[node name="WeaponPivot" type="Node2D" parent="."]
+[node name="WeaponPivot" type="Node2D" parent="." unique_id=1937915166]
 
-[node name="WeaponSprite" type="Sprite2D" parent="WeaponPivot"]
-position = Vector2(160, 0)
-rotation_degrees = -90.0
-scale = Vector2(32.0, 32.0)
-texture_filter = 1
-centered = true
+[node name="WeaponSprite" type="Sprite2D" parent="WeaponPivot" unique_id=1862105497]
 visible = false
+texture_filter = 1
+position = Vector2(160, 0)
+rotation = -1.5707964
+scale = Vector2(32, 32)
 
-[node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot"]
+[node name="WeaponAnimPlayer" type="AnimationPlayer" parent="WeaponPivot" unique_id=617057560]
 libraries/weapon = SubResource("AnimationLibrary_weapon")
