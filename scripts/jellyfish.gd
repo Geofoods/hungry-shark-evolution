@@ -21,7 +21,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$ProgressBar.value = enemyhealth
 	_time += delta
-	# Bob up and down around spawn point
+	# Bob up and down around saspawn point
 	global_position.y = _origin_y + (sin(_time * BOB_SPEED)-0.5) * BOB_AMPLITUDE
 
 	if _player_contact:
