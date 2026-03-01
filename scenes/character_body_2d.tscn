@@ -122,9 +122,9 @@ shape = SubResource("RectangleShape2D_g2brh")
 [node name="WeaponPivot" type="Node2D" parent="."]
 
 [node name="WeaponSprite" type="Sprite2D" parent="WeaponPivot"]
-position = Vector2(120, 0)
+position = Vector2(160, 0)
 rotation_degrees = -90.0
-scale = Vector2(22.0, 22.0)
+scale = Vector2(32.0, 32.0)
 texture_filter = 1
 centered = true
 visible = false

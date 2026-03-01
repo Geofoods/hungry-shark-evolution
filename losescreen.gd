@@ -9,7 +9,10 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	transition.transition("res://scenes/level.tscn")
 	UserInterface.oxygen = 100
 	UserInterface.level = 0
+	UserInterface.weapon = null
+	UserInterface.powerups = [null, null]
+	InventoryUI.refresh()
+	transition.transition("res://scenes/level.tscn")
 	visible = false

@@ -36,7 +36,9 @@ func _physics_process(_delta):
 		weapon_pivot.rotation = to_cursor.angle() + _swing_offset
 	else:
 		weapon_pivot.scale.x = -1.0
-		weapon_pivot.rotation = -atan2(to_cursor.y, -to_cursor.x) + _swing_offset
+		# Negate offset: scale.x=-1 mirrors the rotation direction, so the swing
+		# would go backwards without the negation
+		weapon_pivot.rotation = -atan2(to_cursor.y, -to_cursor.x) - _swing_offset
 
 	_update_weapon()
 
@@ -48,11 +50,11 @@ func _physics_process(_delta):
 func _do_swing() -> void:
 	_is_swinging = true
 	var tween = create_tween()
-	# Wind up behind
-	tween.tween_property(self, "_swing_offset", -0.9, 0.07) \
+	# Wind up behind (~70 degrees)
+	tween.tween_property(self, "_swing_offset", -1.2, 0.08) \
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	# Slash forward fast
-	tween.tween_property(self, "_swing_offset", 1.1, 0.13) \
+	# Slash through in a wide arc (~160 degrees total sweep)
+	tween.tween_property(self, "_swing_offset", 1.6, 0.12) \
 		.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
 	# Snap back to rest
 	tween.tween_property(self, "_swing_offset", 0.0, 0.1) \

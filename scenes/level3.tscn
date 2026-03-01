@@ -951,3 +951,5 @@ position = Vector2(1401.0001, 2561.0002)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2032847015]
 position = Vector2(-71.5, -2144)
 shape = SubResource("RectangleShape2D_b72m1")
+
+[connection signal="body_entered" from="nextlevel" to="nextlevel" method="_on_body_entered"]

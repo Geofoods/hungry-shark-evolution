@@ -9,7 +9,7 @@ const LAYER_NAMES = {
 
 const LAYER_DEPTHS = {
 	1: "0m — 50m",
-	2: "50m — 120m",
+	2: "50m — 100m",
 	3: "120m — 250m",
 	4: "250m+",
 }
@@ -28,6 +28,7 @@ func _ready() -> void:
 	layer = 20
 	visible = false
 	_build_ui()
+	call_deferred("show_layer", 1)
 
 
 func _build_ui() -> void:
