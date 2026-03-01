@@ -1,29 +1,66 @@
 [gd_scene format=3 uid="uid://cinr1kg4y0nm7"]
 
 [ext_resource type="Script" path="res://scripts/stingray.gd" id="1_ray"]
-[ext_resource type="Texture2D" path="res://rochen.png" id="2_ray"]
+[ext_resource type="Texture2D" uid="uid://efgv87brwfak" path="res://rochen.png" id="2_ray"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfpyh"]
+atlas = ExtResource("2_ray")
+region = Rect2(0, 94, 98, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjqu5"]
+atlas = ExtResource("2_ray")
+region = Rect2(98, 94, 98, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33l23"]
+atlas = ExtResource("2_ray")
+region = Rect2(196, 94, 98, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ond1r"]
+atlas = ExtResource("2_ray")
+region = Rect2(294, 94, 98, 94)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vr0jt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfpyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjqu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33l23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ond1r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_body"]
 radius = 22.0
 height = 90.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hurt"]
-radius = 28.0
-height = 90.0
+radius = 76.00001
+height = 228.0
 
-[node name="Stingray" type="CharacterBody2D"]
+[node name="Stingray" type="CharacterBody2D" unique_id=613965640]
 script = ExtResource("1_ray")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_ray")
-scale = Vector2(0.5, 0.5)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=589016678]
+position = Vector2(-9, -1)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_vr0jt")
 
-[node name="BodyCollision" type="CollisionShape2D" parent="."]
+[node name="BodyCollision" type="CollisionShape2D" parent="." unique_id=1415973142]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_body")
+
+[node name="HurtArea" type="Area2D" parent="." unique_id=719937315]
+
+[node name="HurtShape" type="CollisionShape2D" parent="HurtArea" unique_id=2022816422]
 rotation = 1.5708
-
-[node name="HurtArea" type="Area2D" parent="."]
-
-[node name="HurtShape" type="CollisionShape2D" parent="HurtArea"]
 shape = SubResource("CapsuleShape2D_hurt")
-rotation = 1.5708
