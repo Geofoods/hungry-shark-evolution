@@ -80,3 +80,5 @@ func _update_weapon() -> void:
 		weapon_sprite.texture = load(w.texture_path)
 		_equipped_weapon_name = w.name
 		weapon_anim.play("weapon/pickup")
+	if not weapon_anim.is_playing():
+		weapon_sprite.scale = Vector2(4, 4)
