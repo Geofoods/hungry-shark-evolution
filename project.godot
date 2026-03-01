@@ -22,7 +22,11 @@ InventoryUI="*res://inventory_ui.gd"
 LayerPopup="*res://layer_popup.gd"
 EnemySpawner="*res://enemy_spawner.gd"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 PromptUI="*res://prompt_ui.gd"
+=======
+Losescreen="*uid://bwgbbhhsgxyeb"
+>>>>>>> Stashed changes
 =======
 Losescreen="*uid://bwgbbhhsgxyeb"
 >>>>>>> Stashed changes
