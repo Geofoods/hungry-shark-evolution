@@ -8,7 +8,7 @@ const VERTICAL_SPEED = 0.7
 var _direction: float = 1.0
 var _time: float = 0.0
 var _player_contact: bool = false
-
+var _player=null
 
 func _ready() -> void:
 	# Randomise start time and direction so each stingray feels independent
@@ -17,7 +17,13 @@ func _ready() -> void:
 	$Sprite2D.flip_h = _direction < 0.0
 	$HurtArea.body_entered.connect(_on_body_entered)
 	$HurtArea.body_exited.connect(_on_body_exited)
-
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "miner":
+		_player_contact = true
+		_player = body
+		var bolt = Lightning.instantiate()
+		get_tree().root.add_child(bolt)
+		bolt.global_position = body.global_position
 
 func _physics_process(delta: float) -> void:
 	_time += delta
@@ -35,11 +41,17 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if _player_contact:
 		UserInterface.oxygen -= DAMAGE_PER_SECOND * delta
+		var player_pos=_player.global_position
 
+const Lightning = preload("res://bolt.tscn")
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "miner":
 		_player_contact = true
+		_player = body
+		var bolt = Lightning.instantiate()
+		get_tree().root.add_child(bolt)
+		bolt.global_position = body.global_position
 
 
 func _on_body_exited(body: Node2D) -> void:
