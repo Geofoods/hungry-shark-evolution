@@ -4,45 +4,80 @@
 [ext_resource type="Texture2D" uid="uid://cgwrtuuom703m" path="res://people/scuba-stu-pack-lrg-removebg-preview.png" id="2_g2brh"]
 [ext_resource type="Script" uid="uid://b0dmwaod6ubp4" path="res://scenes/playeranimation.gd" id="3_dn4c7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dn4c7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_swim0"]
+atlas = ExtResource("2_g2brh")
+region = Rect2(0, 0, 31, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swim1"]
 atlas = ExtResource("2_g2brh")
 region = Rect2(31, 0, 31, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4vejd"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_swim2"]
 atlas = ExtResource("2_g2brh")
 region = Rect2(62, 0, 31, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ws0vm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_swim3"]
 atlas = ExtResource("2_g2brh")
 region = Rect2(93, 0, 31, 73)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rhr3r"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_swim4"]
+atlas = ExtResource("2_g2brh")
+region = Rect2(124, 0, 31, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swim5"]
+atlas = ExtResource("2_g2brh")
+region = Rect2(155, 0, 31, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swim6"]
 atlas = ExtResource("2_g2brh")
 region = Rect2(186, 0, 31, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swim7"]
+atlas = ExtResource("2_g2brh")
+region = Rect2(217, 0, 31, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idle0"]
+atlas = ExtResource("2_g2brh")
+region = Rect2(0, 0, 31, 73)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t53lx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dn4c7")
+"texture": SubResource("AtlasTexture_swim0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4vejd")
+"texture": SubResource("AtlasTexture_swim1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ws0vm")
+"texture": SubResource("AtlasTexture_swim2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rhr3r")
+"texture": SubResource("AtlasTexture_swim3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swim4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swim5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swim6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swim7")
 }],
 "loop": true,
-"name": &"South",
-"speed": 5.0
+"name": &"swim",
+"speed": 8.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idle0")
+}],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2brh"]
@@ -55,8 +90,7 @@ script = ExtResource("1_ij6vw")
 position = Vector2(3.0000007, 2)
 scale = Vector2(2.1209679, 2.1209674)
 sprite_frames = SubResource("SpriteFrames_t53lx")
-animation = &"South"
-frame_progress = 0.49148354
+animation = &"idle"
 script = ExtResource("3_dn4c7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=772646105]
