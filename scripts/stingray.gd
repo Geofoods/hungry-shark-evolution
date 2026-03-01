@@ -9,6 +9,7 @@ var _direction: float = 1.0
 var _time: float = 0.0
 var _player_contact: bool = false
 var _player=null
+@export var enemyhealth = 100
 
 func _ready() -> void:
 	# Randomise start time and direction so each stingray feels independent
@@ -39,6 +40,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
+	$ProgressBar.value = enemyhealth
 	if _player_contact:
 		UserInterface.oxygen -= DAMAGE_PER_SECOND * delta
 		var player_pos=_player.global_position

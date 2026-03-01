@@ -67,3 +67,9 @@ shape = SubResource("CapsuleShape2D_body")
 [node name="HurtShape" type="CollisionShape2D" parent="HurtArea" unique_id=2022816422]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_hurt")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1913419550]
+offset_left = -118.0
+offset_top = -122.0
+offset_right = 116.0
+offset_bottom = -95.0

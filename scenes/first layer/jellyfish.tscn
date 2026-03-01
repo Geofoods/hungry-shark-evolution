@@ -109,3 +109,9 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1126344536]
 shape = SubResource("CircleShape2D_jfish")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=434433046]
+offset_left = -113.0
+offset_top = -128.0
+offset_right = 112.0
+offset_bottom = -101.0

@@ -7,6 +7,7 @@ const BOB_AMPLITUDE = 100.0
 var _origin_y: float
 var _time: float = 0.0
 var _player_contact: bool = false
+@export var enemyhealth = 100
 
 
 func _ready() -> void:
@@ -18,6 +19,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	$ProgressBar.value = enemyhealth
 	_time += delta
 	# Bob up and down around spawn point
 	global_position.y = _origin_y + (sin(_time * BOB_SPEED)-0.5) * BOB_AMPLITUDE
