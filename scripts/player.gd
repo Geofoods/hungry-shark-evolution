@@ -43,8 +43,12 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("attack"):
 		if UserInterface.weapon != null and not _is_swinging:
 			_do_swing()
-
-
+func reset() -> void:
+	weapon_sprite.visible = false
+	_equipped_weapon_name = ""
+	_swing_offset = 0.0
+	_is_swinging = false
+	
 func _do_swing() -> void:
 	_is_swinging = true
 	var tween = create_tween()

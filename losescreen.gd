@@ -7,9 +7,11 @@ func _process(delta: float) -> void:
 		visible = true
 		get_tree().paused = true
 
-
+@onready var player = get_tree().get_first_node_in_group("player")
 func _on_button_pressed() -> void:
-	transition.transition("res://scenes/level.tscn")
+	UserInterface.weapon = null
 	UserInterface.oxygen = 100
 	UserInterface.level = 0
+	InventoryUI.restart()
+	transition.transition("res://scenes/level.tscn")
 	visible = false

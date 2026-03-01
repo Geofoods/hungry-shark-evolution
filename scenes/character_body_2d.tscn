@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtcw6bc0fitj"]
 
-[ext_resource type="Script" uid="uid://byydsj5eyoc42" path="res://scripts/character_body_2d.gd" id="1_ij6vw"]
+[ext_resource type="Script" uid="uid://byydsj5eyoc42" path="res://scripts/player.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://cgwrtuuom703m" path="res://people/scuba-stu-pack-lrg-removebg-preview.png" id="2_g2brh"]
 [ext_resource type="Script" uid="uid://b0dmwaod6ubp4" path="res://scenes/playeranimation.gd" id="3_dn4c7"]
 

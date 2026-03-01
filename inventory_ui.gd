@@ -7,6 +7,8 @@ const SPACING = 10
 var weapon_icon: TextureRect
 var powerup_icons: Array = []
 
+
+
 func _ready() -> void:
 	layer = 10
 
@@ -76,3 +78,7 @@ func refresh() -> void:
 			powerup_icons[i].texture = load(UserInterface.powerups[i].texture_path)
 		else:
 			powerup_icons[i].texture = null
+func restart() -> void:
+	weapon_icon.texture = null
+	for icon in powerup_icons:
+		icon.texture = null
