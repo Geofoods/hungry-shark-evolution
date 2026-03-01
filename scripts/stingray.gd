@@ -45,15 +45,6 @@ func _process(delta: float) -> void:
 
 const Lightning = preload("res://bolt.tscn")
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.name == "miner":
-		_player_contact = true
-		_player = body
-		var bolt = Lightning.instantiate()
-		get_tree().root.add_child(bolt)
-		bolt.global_position = body.global_position
-
-
 func _on_body_exited(body: Node2D) -> void:
 	if body.name == "miner":
 		_player_contact = false
