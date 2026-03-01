@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 
 	# Reverse on wall hit
 	if is_on_wall():
-		_direction *= -1.0
+		_direction *= -1
 		$Sprite2D.flip_h = _direction < 0.0
 
 

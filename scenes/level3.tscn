@@ -878,7 +878,6 @@ size = Vector2(1552, 292)
 position = Vector2(-88, -1990)
 
 [node name="Camera2D" type="Camera2D" parent="miner" unique_id=2038858518]
-zoom = Vector2(0.75, 0.75)
 limit_top = -2100
 limit_bottom = 3200
 position_smoothing_enabled = true
