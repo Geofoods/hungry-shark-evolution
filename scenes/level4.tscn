@@ -871,7 +871,7 @@ pattern_2 = SubResource("TileMapPattern_b121j")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_klq6b"]
 size = Vector2(1552, 292)
 
-[node name="level" type="Node2D" unique_id=1405336156]
+[node name="level3" type="Node2D" unique_id=1405336156]
 
 [node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_5cjb5")]
 position = Vector2(-88, -1990)
