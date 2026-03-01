@@ -1,12 +1,13 @@
-[gd_scene format=4 uid="uid://ca0vkmloxps2d"]
+[gd_scene format=4 uid="uid://bckb6smnic808"]
 
-[ext_resource type="PackedScene" uid="uid://dtcw6bc0fitj" path="res://scenes/character_body_2d.tscn" id="1_hrcei"]
-[ext_resource type="Script" uid="uid://domvdq6ryi2ea" path="res://scenes/camera_2d.gd" id="2_xa7n4"]
-[ext_resource type="Script" uid="uid://da1hytj0xj3hl" path="res://scenes/progress_bar.gd" id="3_bo4dx"]
-[ext_resource type="Script" uid="uid://c7b6vkjhjtawj" path="res://scenes/text_edit.gd" id="4_76toy"]
-[ext_resource type="Texture2D" uid="uid://cvwvrpy4qlip1" path="res://sprites/youlose.jpg" id="5_8g4ke"]
-[ext_resource type="Texture2D" uid="uid://c7ml23lvb2c6t" path="res://sprites/sheet.png" id="6_56gwk"]
-[ext_resource type="Script" uid="uid://badcxlsojw6ep" path="res://scenes/nextlevel.gd" id="7_ve5ok"]
+[ext_resource type="PackedScene" uid="uid://dtcw6bc0fitj" path="res://scenes/character_body_2d.tscn" id="1_5mhml"]
+[ext_resource type="Script" uid="uid://domvdq6ryi2ea" path="res://scenes/camera_2d.gd" id="2_rupth"]
+[ext_resource type="Script" uid="uid://da1hytj0xj3hl" path="res://scenes/progress_bar.gd" id="3_6qt4k"]
+[ext_resource type="Script" uid="uid://c7b6vkjhjtawj" path="res://scenes/text_edit.gd" id="4_fh4ka"]
+[ext_resource type="Texture2D" uid="uid://cvwvrpy4qlip1" path="res://sprites/youlose.jpg" id="5_qewby"]
+[ext_resource type="Texture2D" uid="uid://c7ml23lvb2c6t" path="res://sprites/sheet.png" id="6_bradm"]
+[ext_resource type="Script" uid="uid://badcxlsojw6ep" path="res://scenes/nextlevel.gd" id="7_got4s"]
+[ext_resource type="PackedScene" uid="uid://0veg74najmgo" path="res://scenes/chest.tscn" id="8_e40mx"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_2r41h"]
 tile_data = PackedInt32Array(0, 131072, 5, 1, 262144, 1, 2, 262144, 1, 3, 262144, 1, 4, 262144, 1, 5, 262144, 1, 6, 262144, 1, 7, 262144, 1, 8, 262144, 1, 9, 131072, 4)
@@ -18,7 +19,7 @@ tile_data = PackedInt32Array(0, 131072, 5, 1, 262144, 3, 2, 262144, 3, 3, 262144
 tile_data = PackedInt32Array(0, 131072, 1, 1, 65536, 4, 2, 65536, 4, 3, 65536, 4, 4, 65536, 4, 5, 65536, 4, 6, 65536, 4, 7, 65536, 4, 8, 65536, 4, 9, 131072, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mx8sn"]
-texture = ExtResource("6_56gwk")
+texture = ExtResource("6_bradm")
 texture_region_size = Vector2i(70, 70)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -873,7 +874,7 @@ size = Vector2(1552, 292)
 
 [node name="level" type="Node2D" unique_id=1405336156]
 
-[node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_hrcei")]
+[node name="miner" parent="." unique_id=297162121 instance=ExtResource("1_5mhml")]
 position = Vector2(-88, -1990)
 
 [node name="Camera2D" type="Camera2D" parent="miner" unique_id=2038858518]
@@ -882,7 +883,7 @@ limit_top = -2100
 limit_bottom = 3200
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
-script = ExtResource("2_xa7n4")
+script = ExtResource("2_rupth")
 offset_factor = 0.1
 player = NodePath("..")
 
@@ -895,7 +896,7 @@ offset_top = 967.0
 offset_right = 1878.0
 offset_bottom = 1040.0
 value = 100.0
-script = ExtResource("3_bo4dx")
+script = ExtResource("3_6qt4k")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="User Interface" unique_id=1789430643]
@@ -905,14 +906,14 @@ offset_right = 102.0
 offset_bottom = 1047.0
 theme_override_font_sizes/font_size = 22
 text = "fasdf"
-script = ExtResource("4_76toy")
+script = ExtResource("4_fh4ka")
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="User Interface" unique_id=918596848]
 visible = false
 position = Vector2(-34.000008, 241.00003)
 scale = Vector2(3.578, 3.578)
-texture = ExtResource("5_8g4ke")
+texture = ExtResource("5_qewby")
 offset = Vector2(326.47968, 86.27979)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1717291227]
@@ -921,8 +922,32 @@ tile_map_data = PackedByteArray("AADu/xYAAAABAAIAAADu/xUAAAABAAQAAADu/xQAAAABAAQ
 tile_set = SubResource("TileSet_ppgk2")
 
 [node name="nextlevel" type="Area2D" parent="." unique_id=1148327574]
-script = ExtResource("7_ve5ok")
+script = ExtResource("7_got4s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nextlevel" unique_id=1847476716]
 position = Vector2(-217, 2911)
 shape = SubResource("RectangleShape2D_klq6b")
+
+[node name="Chest" parent="." unique_id=282726690 instance=ExtResource("8_e40mx")]
+position = Vector2(-2172.9998, 455.99997)
+
+[node name="Chest2" parent="." unique_id=1992300173 instance=ExtResource("8_e40mx")]
+position = Vector2(-1313, -1351.9999)
+
+[node name="Chest3" parent="." unique_id=534349292 instance=ExtResource("8_e40mx")]
+position = Vector2(947.9998, -245.00006)
+
+[node name="Chest4" parent="." unique_id=582336274 instance=ExtResource("8_e40mx")]
+position = Vector2(3694.0002, 585.99994)
+
+[node name="Chest5" parent="." unique_id=2003633510 instance=ExtResource("8_e40mx")]
+position = Vector2(2621.0002, -811.00006)
+
+[node name="Chest6" parent="." unique_id=1134203006 instance=ExtResource("8_e40mx")]
+position = Vector2(948.0001, -1351)
+
+[node name="Chest7" parent="." unique_id=683628055 instance=ExtResource("8_e40mx")]
+position = Vector2(-1563.0001, 2544.9998)
+
+[node name="Chest8" parent="." unique_id=240060010 instance=ExtResource("8_e40mx")]
+position = Vector2(1401.0001, 2561.0002)
