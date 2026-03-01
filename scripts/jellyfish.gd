@@ -21,6 +21,7 @@ func _process(_delta) -> void:
 
 	if _player_contact and !$GPUParticles2D2.emitting:
 		UserInterface.knockback = -10
+		UserInterface.shakeamount += 50
 		$GPUParticles2D2.emitting = true
 		UserInterface.oxygen -= DAMAGE_PER_SECOND
 
