@@ -1,19 +1,29 @@
 [gd_scene format=3 uid="uid://cinr1kg4y0nm7"]
 
-[ext_resource type="Script" uid="uid://du1io74yy2imo" path="res://scripts/shark.gd" id="1_sfpyh"]
-[ext_resource type="Texture2D" uid="uid://ct2f5vt3w7urn" path="res://sprites/icon.svg" id="2_cjqu5"]
+[ext_resource type="Script" path="res://scripts/stingray.gd" id="1_ray"]
+[ext_resource type="Texture2D" path="res://rochen.png" id="2_ray"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5iaq"]
-size = Vector2(524, 109)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_body"]
+radius = 22.0
+height = 90.0
 
-[node name="shark" type="CharacterBody2D" unique_id=2102375293]
-script = ExtResource("1_sfpyh")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hurt"]
+radius = 28.0
+height = 90.0
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1348944412]
-position = Vector2(253, 53)
-scale = Vector2(4.140625, 0.828125)
-texture = ExtResource("2_cjqu5")
+[node name="Stingray" type="CharacterBody2D"]
+script = ExtResource("1_ray")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=86543027]
-position = Vector2(252, 44.5)
-shape = SubResource("RectangleShape2D_v5iaq")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ray")
+scale = Vector2(0.5, 0.5)
+
+[node name="BodyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_body")
+rotation = 1.5708
+
+[node name="HurtArea" type="Area2D" parent="."]
+
+[node name="HurtShape" type="CollisionShape2D" parent="HurtArea"]
+shape = SubResource("CapsuleShape2D_hurt")
+rotation = 1.5708
