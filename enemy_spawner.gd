@@ -5,7 +5,6 @@ const STINGRAY_SCENE = preload("res://scenes/stingray.tscn")
 
 const JELLYFISH_COUNT = 6
 const STINGRAY_COUNT = 4
-# Don't spawn within this radius of the player's start position
 const MIN_DIST_FROM_PLAYER = 350.0
 
 var _last_scene: Node = null
@@ -25,36 +24,42 @@ func _spawn_enemies() -> void:
 
 	var tilemap = _find_tilemap(root)
 	var player = root.get_node_or_null("miner")
-
 	if tilemap == null or player == null:
 		return
 
-	var used_cells = tilemap.get_used_cells()
+	var used_cells: Array = Array(tilemap.get_used_cells())
 	if used_cells.is_empty():
 		return
 
-	# Build a set for fast membership checks
+	# Build occupied set in cell space
 	var occupied: Dictionary = {}
 	for cell in used_cells:
 		occupied[cell] = true
 
-	# World-space bounds from tilemap cells (accounting for tilemap scale/position)
-	var min_cell = used_cells[0]
-	var max_cell = used_cells[0]
+	# Compute cell-space bounds
+	var min_cx: int = used_cells[0].x
+	var max_cx: int = used_cells[0].x
+	var min_cy: int = used_cells[0].y
+	var max_cy: int = used_cells[0].y
 	for cell in used_cells:
-		if cell.x < min_cell.x: min_cell.x = cell.x
-		if cell.y < min_cell.y: min_cell.y = cell.y
-		if cell.x > max_cell.x: max_cell.x = cell.x
-		if cell.y > max_cell.y: max_cell.y = cell.y
+		if cell.x < min_cx: min_cx = cell.x
+		if cell.x > max_cx: max_cx = cell.x
+		if cell.y < min_cy: min_cy = cell.y
+		if cell.y > max_cy: max_cy = cell.y
 
-	# Convert cell bounds to world positions, inset 3 cells from edges
-	var world_min = tilemap.to_global(tilemap.map_to_local(min_cell + Vector2i(3, 3)))
-	var world_max = tilemap.to_global(tilemap.map_to_local(max_cell - Vector2i(3, 3)))
+	# Inset 3 cells from edges to avoid spawning right on the border
+	min_cx += 3; max_cx -= 3
+	min_cy += 3; max_cy -= 3
+
+	if min_cx >= max_cx or min_cy >= max_cy:
+		return
 
 	var player_pos = player.global_position
 
-	_spawn_group(JELLYFISH_SCENE, JELLYFISH_COUNT, root, tilemap, occupied, player_pos, world_min, world_max)
-	_spawn_group(STINGRAY_SCENE, STINGRAY_COUNT, root, tilemap, occupied, player_pos, world_min, world_max)
+	_spawn_group(JELLYFISH_SCENE, JELLYFISH_COUNT, root, tilemap, occupied,
+		player_pos, min_cx, max_cx, min_cy, max_cy)
+	_spawn_group(STINGRAY_SCENE, STINGRAY_COUNT, root, tilemap, occupied,
+		player_pos, min_cx, max_cx, min_cy, max_cy)
 
 
 func _spawn_group(
@@ -64,40 +69,44 @@ func _spawn_group(
 	tilemap: Node,
 	occupied: Dictionary,
 	player_pos: Vector2,
-	world_min: Vector2,
-	world_max: Vector2
+	min_cx: int, max_cx: int,
+	min_cy: int, max_cy: int
 ) -> void:
 	var spawned = 0
 	var attempts = 0
-	var max_attempts = count * 30
+	var max_attempts = count * 40
 
 	while spawned < count and attempts < max_attempts:
 		attempts += 1
-		var candidate = Vector2(
-			randf_range(world_min.x, world_max.x),
-			randf_range(world_min.y, world_max.y)
+
+		# Pick a random cell within bounds
+		var cell = Vector2i(
+			randi_range(min_cx, max_cx),
+			randi_range(min_cy, max_cy)
 		)
 
-		if candidate.distance_to(player_pos) < MIN_DIST_FROM_PLAYER:
+		# Reject if cell or any of its 8 neighbours is occupied (wall)
+		if not _cell_is_open(cell, occupied):
 			continue
 
-		if not _is_open(candidate, tilemap, occupied):
+		# Convert cell centre to world position
+		var world_pos = tilemap.to_global(tilemap.map_to_local(cell))
+
+		if world_pos.distance_to(player_pos) < MIN_DIST_FROM_PLAYER:
 			continue
 
 		var instance = scene.instantiate()
 		root.add_child(instance)
-		instance.global_position = candidate
+		instance.global_position = world_pos
 		spawned += 1
 
 
-func _is_open(world_pos: Vector2, tilemap: Node, occupied: Dictionary) -> bool:
-	# Sample the candidate position plus four neighbours — all must be empty tiles
-	var offsets = [Vector2.ZERO, Vector2(50, 0), Vector2(-50, 0), Vector2(0, 50), Vector2(0, -50)]
-	for offset in offsets:
-		var local = tilemap.to_local(world_pos + offset)
-		var cell = tilemap.local_to_map(local)
-		if occupied.has(cell):
-			return false
+func _cell_is_open(cell: Vector2i, occupied: Dictionary) -> bool:
+	# The cell and all 8 neighbours must be free of tiles
+	for dx in range(-1, 2):
+		for dy in range(-1, 2):
+			if occupied.has(Vector2i(cell.x + dx, cell.y + dy)):
+				return false
 	return true
 
 

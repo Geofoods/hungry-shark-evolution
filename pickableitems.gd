@@ -7,15 +7,12 @@ const WEAPONS = [
 
 var item_data: Dictionary = {}
 var player_in_range: bool = false
-var tooltip: Label
 
 
 func _ready() -> void:
 	item_data = WEAPONS[randi_range(0, WEAPONS.size() - 1)]
 	$"item sprite".texture = load(item_data.texture_path)
 	$"item sprite/AnimationPlayer".play("open")
-
-	_build_tooltip()
 
 	var area = Area2D.new()
 	area.name = "PickupArea"
@@ -29,21 +26,7 @@ func _ready() -> void:
 	add_child(area)
 
 
-func _build_tooltip() -> void:
-	tooltip = Label.new()
-	tooltip.name = "Tooltip"
-	tooltip.visible = false
-	tooltip.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	tooltip.position = Vector2(-80, -90)
-	tooltip.add_theme_font_size_override("font_size", 18)
-	tooltip.add_theme_color_override("font_color", Color.WHITE)
-	tooltip.add_theme_color_override("font_shadow_color", Color(0, 0, 0, 0.8))
-	tooltip.add_theme_constant_override("shadow_offset_x", 2)
-	tooltip.add_theme_constant_override("shadow_offset_y", 2)
-	add_child(tooltip)
-
-
-func _refresh_tooltip() -> void:
+func _prompt_text() -> String:
 	var already_have: bool
 	var slot_full: bool
 
@@ -55,28 +38,12 @@ func _refresh_tooltip() -> void:
 					or (UserInterface.powerups[1] != null and UserInterface.powerups[1].name == item_data.name)
 		slot_full = UserInterface.powerups[0] != null and UserInterface.powerups[1] != null
 
-	var action: String
 	if already_have:
-		action = "[Already have this]"
+		return item_data.name + "  [Already have this]"
 	elif slot_full:
-		action = "E - Swap"
+		return item_data.name + "  —  Swap"
 	else:
-		action = "E - Pick Up"
-
-	tooltip.text = item_data.name + "\n" + action
-
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.name == "miner":
-		player_in_range = true
-		_refresh_tooltip()
-		tooltip.visible = true
-
-
-func _on_body_exited(body: Node2D) -> void:
-	if body.name == "miner":
-		player_in_range = false
-		tooltip.visible = false
+		return item_data.name + "  —  Pick Up"
 
 
 func _already_have() -> bool:
@@ -84,6 +51,18 @@ func _already_have() -> bool:
 		return UserInterface.weapon != null and UserInterface.weapon.name == item_data.name
 	return (UserInterface.powerups[0] != null and UserInterface.powerups[0].name == item_data.name) \
 		or (UserInterface.powerups[1] != null and UserInterface.powerups[1].name == item_data.name)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "miner":
+		player_in_range = true
+		PromptUI.show_prompt(_prompt_text())
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body.name == "miner":
+		player_in_range = false
+		PromptUI.hide_prompt()
 
 
 func _process(_delta: float) -> void:
@@ -94,10 +73,10 @@ func _process(_delta: float) -> void:
 		InventoryUI.refresh()
 
 		if old_item.is_empty():
-			# Nothing displaced — clean pickup
+			PromptUI.hide_prompt()
 			queue_free()
 		else:
-			# Become the dropped item so the player can pick it back up
+			# Become the dropped item so the player can swap back
 			item_data = old_item
 			$"item sprite".texture = load(item_data.texture_path)
-			_refresh_tooltip()
+			PromptUI.show_prompt(_prompt_text())
