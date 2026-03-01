@@ -3,6 +3,24 @@
 [ext_resource type="Script" uid="uid://byydsj5eyoc42" path="res://scripts/character_body_2d.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://cgwrtuuom703m" path="res://people/scuba-stu-pack-lrg-removebg-preview.png" id="2_g2brh"]
 [ext_resource type="Script" uid="uid://b0dmwaod6ubp4" path="res://scenes/playeranimation.gd" id="3_dn4c7"]
+[ext_resource type="Texture2D" uid="uid://cnhrvk848isw6" path="res://Power_template.png" id="4_4vejd"]
+
+[sub_resource type="Gradient" id="Gradient_4vejd"]
+colors = PackedColorArray(1, 1, 1, 1, 0.043137256, 0.31764707, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ws0vm"]
+gradient = SubResource("Gradient_4vejd")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ws0vm"]
+particle_flag_disable_z = true
+angle_min = -162.2
+angle_max = 45.00001
+spread = 31.765
+initial_velocity_min = -75.0
+initial_velocity_max = 75.89
+gravity = Vector3(0, -90, 0)
+scale_min = 0.25
+color_ramp = SubResource("GradientTexture1D_ws0vm")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idle0"]
 atlas = ExtResource("2_g2brh")
@@ -106,6 +124,14 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" unique_id=297162121]
 script = ExtResource("1_ij6vw")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=199248913]
+position = Vector2(5, -49)
+amount = 25
+texture = ExtResource("4_4vejd")
+lifetime = 2.1599999999999997
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ws0vm")
 
 [node name="playeranimation" type="AnimatedSprite2D" parent="." unique_id=1297599976]
 position = Vector2(3.0000007, 2)

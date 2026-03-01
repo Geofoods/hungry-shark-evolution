@@ -907,11 +907,11 @@ grow_vertical = 0
 value = 100.0
 script = ExtResource("3_7pj42")
 
-[node name="Label" type="Label" parent="User Interface" unique_id=502030077]
+[node name="Label" type="Label" parent="User Interface" unique_id=247177211]
 offset_left = 287.0
-offset_top = 988.0
+offset_top = 558.0
 offset_right = 393.0
-offset_bottom = 1049.0
+offset_bottom = 619.0
 theme_override_font_sizes/font_size = 44
 text = "fasdf"
 script = ExtResource("4_thmvh")

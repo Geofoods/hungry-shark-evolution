@@ -1,7 +1,25 @@
 [gd_scene format=3 uid="uid://rsqkqgxu50of"]
 
 [ext_resource type="Script" uid="uid://diayty2mcxwv7" path="res://scripts/jellyfish.gd" id="1_jfish"]
+[ext_resource type="Texture2D" uid="uid://cnhrvk848isw6" path="res://Power_template.png" id="2_4q3rh"]
 [ext_resource type="Texture2D" uid="uid://cyx8ktgoiqp7s" path="res://jellyfish.png" id="2_jfish"]
+
+[sub_resource type="Gradient" id="Gradient_a22yk"]
+colors = PackedColorArray(1, 1, 1, 1, 0.043137256, 0.31764707, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ppy4u"]
+gradient = SubResource("Gradient_a22yk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mhlew"]
+particle_flag_disable_z = true
+angle_min = -162.2
+angle_max = 45.00001
+spread = 31.765
+initial_velocity_min = -75.0
+initial_velocity_max = 75.89
+gravity = Vector3(0, -90, 0)
+scale_min = 0.25
+color_ramp = SubResource("GradientTexture1D_ppy4u")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m01wf"]
 atlas = ExtResource("2_jfish")
@@ -100,6 +118,14 @@ radius = 89.27486
 
 [node name="Jellyfish" type="Area2D" unique_id=2095178431]
 script = ExtResource("1_jfish")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1024882618]
+position = Vector2(5, -49)
+amount = 25
+texture = ExtResource("2_4q3rh")
+lifetime = 2.1599999999999997
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_mhlew")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1143005252]
 texture_filter = 1
