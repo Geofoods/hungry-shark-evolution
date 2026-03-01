@@ -8,7 +8,7 @@ func _physics_process(delta):
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	if input_vector.length() > 0:
 		input_vector = input_vector.normalized()
-		$playeranimation.rotation = input_vector.angle()+ 3.14159/2
+		$playeranimation.rotation = input_vector.angle()+ PI/2
 	# --- MOVE PLAYER ---
 	velocity = input_vector * speed
 	move_and_slide()
