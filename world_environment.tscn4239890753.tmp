@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wjtrd"]
 shader = ExtResource("1_x16oa")
 shader_parameter/alpha = 0.5
-shader_parameter/inner_radius = 0.0
+shader_parameter/inner_radius = 0.5
 shader_parameter/outer_radius = 1.0
 
 [node name="postprocessing" type="CanvasLayer" unique_id=742937369]
