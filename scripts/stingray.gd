@@ -38,7 +38,6 @@ func _physics_process(delta: float) -> void:
 		_direction *= -1
 		$Sprite2D.flip_h = _direction < 0.0
 
-
 func _process(delta: float) -> void:
 	$ProgressBar.value = enemyhealth
 	if _player_contact:
