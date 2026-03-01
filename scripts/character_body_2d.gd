@@ -28,7 +28,8 @@ func _physics_process(delta):
 		rotation = lerp_angle(rotation, target_angle, rotation_speed * delta)
 		
 		# Move in the direction of input
-		velocity = input_vector.normalized() * speed
+		velocity = input_vector.normalized() * speed * (UserInterface.knockback+1)
+		UserInterface.knockback *= 0.7
 	else:
 		velocity = Vector2.ZERO
 	

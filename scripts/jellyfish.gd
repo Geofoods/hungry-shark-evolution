@@ -20,6 +20,7 @@ func _process(_delta) -> void:
 	global_position.y = _origin_y + (sin(BOB_SPEED)-0.5) * BOB_AMPLITUDE
 
 	if _player_contact and !$GPUParticles2D2.emitting:
+		UserInterface.knockback = -10
 		$GPUParticles2D2.emitting = true
 		UserInterface.oxygen -= DAMAGE_PER_SECOND
 

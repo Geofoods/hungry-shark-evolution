@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if _player_contact and !$GPUParticles2D2.emitting:
 		$GPUParticles2D2.emitting = true
+		UserInterface.knockback = -10
 		UserInterface.oxygen -= DAMAGE_PER_SECOND
 		var player_pos=_player.global_position
 		
